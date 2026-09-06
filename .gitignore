@@ -28,3 +28,7 @@ pnpm-debug.log*
 
 # dev server log
 *.log
+
+# Agent skills (restore with: npx skills experimental_install)
+.agents/
+.claude/skills/
