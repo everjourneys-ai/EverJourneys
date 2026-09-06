@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { hubspotMeetingUrl } from "../data/site";
+
+const title = "Start with a conversation — EverJourneys";
+const description =
+  "Pick a time to talk with EverJourneys. No pitch — just a conversation about what's actually going on in your business.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-white">
+    <div class="mx-auto max-w-2xl px-6 py-24 md:py-32">
+      <h1
+        class="font-serif text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl"
+      >
+        Let's start with a conversation.
+      </h1>
+      <p class="mt-6 text-lg text-slate-600">
+        Pick a time that works for you. No pitch — just a conversation about what's
+        actually going on in your business.
+      </p>
+      <div class="mt-10">
+        <a
+          href={hubspotMeetingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-md bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
+        >
+          Choose a time
+        </a>
+      </div>
+      <p class="mt-4 text-sm text-slate-400">
+        You'll be taken to our scheduling partner, HubSpot, to book a time.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

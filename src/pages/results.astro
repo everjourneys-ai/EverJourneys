@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/results/Hero.astro";
+import ResultsIntro from "../components/results/ResultsIntro.astro";
+import WhatWeMeasure from "../components/results/WhatWeMeasure.astro";
+import ProblemToResult from "../components/results/ProblemToResult.astro";
+import NoTwoJourneysSame from "../components/results/NoTwoJourneysSame.astro";
+import CTA from "../components/results/CTA.astro";
+
+// TODO: confirm final SEO copy
+const title = "Results — Proof of the EverJourneys Method";
+const description =
+  "See how EverJourneys diagnoses what's constraining growth, builds the response, and measures what changes — the process behind every engagement.";
+
+// Note: the source doc's "Featured Case Studies" section is intentionally not
+// built for V1 — no real case-study content exists yet (see the results
+// handoff and everjourneys-website-buildout-plan-v1.md, Phase 7). The page
+// goes straight from Hero → ResultsIntro → WhatWeMeasure.
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero />
+  <ResultsIntro />
+  <WhatWeMeasure />
+  <ProblemToResult />
+  <NoTwoJourneysSame />
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import FrameworkChain from "../shared/FrameworkChain.astro";
+import { problemToResultFramework } from "../../data/results";
+---
+
+<section class="border-t border-slate-100 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="Beyond the Deliverable"
+      headline="The result isn't just what we built."
+      subhead="It's what changed because we built it."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      A new campaign, landing page, website, message, or system is only valuable
+      if it addresses something that matters. That's why these case studies focus
+      on the problem, the reasoning behind the work, and the outcome — not just
+      the finished deliverable.
+    </p>
+    <div class="mt-12">
+      <FrameworkChain steps={problemToResultFramework} />
+    </div>
+  </div>
+</section>

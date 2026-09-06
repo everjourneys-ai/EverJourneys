@@ -1,0 +1,25 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import CompassDiagram from "../shared/CompassDiagram.astro";
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="How It Works"
+      headline="Clarity first. Direction second."
+      subhead="EverCompass evaluates where a business actually is, then tells you what to do about it."
+    />
+    <div class="mt-12 grid items-center gap-10 md:grid-cols-[1fr_auto]">
+      <p class="max-w-2xl text-lg text-slate-600">
+        The result is a clear set of priorities — sometimes one bottleneck, more
+        often a short list in order — telling you what to fix first, what to fix
+        next, and what to leave alone for now. From there, EverJourneys builds
+        and improves the specific pieces that priority list calls for.
+      </p>
+      <div class="flex justify-center md:justify-end">
+        <CompassDiagram variant="full" />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import FrameworkChain from "../shared/FrameworkChain.astro";
+import { problemToResultFramework } from "../../data/results";
+---
+
+<section class="border-t border-slate-100 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="How the Work Comes Together"
+      headline="Every result starts with a better question."
+      subhead="We don't begin by asking what we can build. We begin by asking what's actually getting in the way."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      EverCompass helps identify the constraint. EverJourneys builds the
+      response. The Growth Loop measures what happens next.
+    </p>
+    <div class="mt-12">
+      <FrameworkChain steps={problemToResultFramework} />
+    </div>
+  </div>
+</section>

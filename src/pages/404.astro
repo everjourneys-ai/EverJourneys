@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Page not found — EverJourneys";
+const description = "The page you're looking for doesn't exist.";
+---
+
+<BaseLayout title={title} description={description}>
+  <meta slot="head" name="robots" content="noindex" />
+  <section class="bg-white">
+    <div class="mx-auto max-w-5xl px-6 py-24 md:py-32">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+        404
+      </p>
+      <h1
+        class="mt-4 font-serif text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl"
+      >
+        This page doesn't exist.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg text-slate-600">
+        The page you're looking for may have moved, or the link may be broken.
+      </p>
+      <div class="mt-10">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center rounded-md bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
+        >
+          Back to home
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

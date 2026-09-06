@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/home/Hero.astro";
+import ProblemRecognition from "../components/home/ProblemRecognition.astro";
+import WhatWeDo from "../components/home/WhatWeDo.astro";
+import HowWeThink from "../components/home/HowWeThink.astro";
+import Difference from "../components/home/Difference.astro";
+import WhatWeDeliver from "../components/home/WhatWeDeliver.astro";
+import ThreeWaysToWork from "../components/home/ThreeWaysToWork.astro";
+import ProcessSteps from "../components/home/ProcessSteps.astro";
+import WhoItsFor from "../components/home/WhoItsFor.astro";
+import WhatYouWalkAwayWith from "../components/home/WhatYouWalkAwayWith.astro";
+import FAQ from "../components/home/FAQ.astro";
+import FinalCTA from "../components/home/FinalCTA.astro";
+
+// TODO: confirm final SEO copy — Hero / Core Promise wording is still
+// unresolved upstream. Placeholder title + a one-sentence description drawn
+// from the Core Message.
+const title = "EverJourneys — Growth Systems Consultancy";
+const description =
+  "EverJourneys helps established businesses fix what's disconnected in how they attract, convert, and keep customers — diagnosing what's constraining growth, then building and improving the connected system that fixes it.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero />
+  <ProblemRecognition />
+  <WhatWeDo />
+  <HowWeThink />
+  <Difference />
+  <WhatWeDeliver />
+  <ThreeWaysToWork />
+  <ProcessSteps />
+  <WhoItsFor />
+  <WhatYouWalkAwayWith />
+  <FAQ />
+  <FinalCTA />
+</BaseLayout>

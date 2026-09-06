@@ -1,0 +1,33 @@
+---
+import { quickReference } from "../../data/process";
+---
+
+<section class="border-t border-slate-100 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-12 md:py-16">
+    <div class="mx-auto max-w-3xl rounded-xl border border-slate-300 bg-white p-6 md:p-8">
+      <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+        Quick reference
+      </p>
+      <table class="mt-4 w-full border-collapse text-left">
+        <thead>
+          <tr class="border-b border-slate-200 text-sm text-slate-500">
+            <th class="py-2 pr-4 font-semibold">Term</th>
+            <th class="py-2 font-semibold">What it is</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            quickReference.map((row) => (
+              <tr class="border-b border-slate-100 last:border-0 align-top">
+                <td class="py-3 pr-4 font-serif font-semibold text-slate-900">
+                  {row.term}
+                </td>
+                <td class="py-3 text-slate-600">{row.meaning}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

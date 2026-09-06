@@ -1,0 +1,101 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+
+// The circular Growth Loop diagram is built inline in this section for V1.
+// It must read as a CIRCLE, not a left-to-right chain: the closed shape is what
+// communicates "this repeats" (per the source doc, the word "Repeat" alone
+// doesn't carry that). Circle + 5 labelled points + directional arrowheads,
+// same spirit as CompassDiagram — not final art.
+const points = [
+  { name: "Analyze", x: 170, y: 55, lx: 170, ly: 34, anchor: "middle" },
+  { name: "Build", x: 260, y: 121, lx: 274, ly: 116, anchor: "start" },
+  { name: "Launch", x: 226, y: 227, lx: 236, ly: 249, anchor: "start" },
+  { name: "Optimize", x: 114, y: 227, lx: 104, ly: 249, anchor: "end" },
+  { name: "Repeat", x: 80, y: 121, lx: 66, ly: 116, anchor: "end" },
+];
+
+// Clockwise arc from each point to the next (last wraps back to Analyze),
+// so the loop visibly closes.
+const arcs = points.map((p, i) => {
+  const next = points[(i + 1) % points.length];
+  return `M ${p.x} ${p.y} A 95 95 0 0 1 ${next.x} ${next.y}`;
+});
+---
+
+<section class="border-t border-slate-100 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="It Doesn't Stop at Launch"
+      headline="The work doesn't stop once something launches."
+      subhead="The Customer Journey is where EverCompass looks to find a problem. The Growth Loop is how the fix gets measured and improved — continuously, not once."
+    />
+    <div class="mt-12 grid items-center gap-10 md:grid-cols-[1fr_auto]">
+      <p class="max-w-2xl text-lg text-slate-600">
+        Once something is built and launched, EverCompass shifts from diagnosing
+        to measuring: Analyze (look at what the fix actually did, against the
+        problem it was meant to solve) &rarr; Build &rarr; Launch &rarr; Optimize
+        &rarr; Repeat. It tracks how the fix performs, decides what that result
+        means, and directs the next move — sharpening the fix or moving on to
+        what's next in the priority list. Each loop starts from what actually
+        happened, not from zero.
+      </p>
+
+      <svg
+        role="img"
+        aria-label="The Growth Loop: Analyze, Build, Launch, Optimize, Repeat — arranged in a circle that returns to Analyze."
+        viewBox="0 0 340 285"
+        class="mx-auto w-full max-w-md text-slate-300"
+      >
+        <defs>
+          <marker
+            id="growth-loop-arrow"
+            viewBox="0 0 10 10"
+            refX="8"
+            refY="5"
+            markerWidth="7"
+            markerHeight="7"
+            orient="auto-start-reverse"
+          >
+            <path d="M 0 0 L 10 5 L 0 10 z" class="fill-teal-700"></path>
+          </marker>
+        </defs>
+
+        {
+          arcs.map((d) => (
+            <path
+              d={d}
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              marker-end="url(#growth-loop-arrow)"
+            />
+          ))
+        }
+
+        {
+          points.map((p) => (
+            <>
+              <circle cx={p.x} cy={p.y} r="5" class="fill-teal-700" />
+              <text
+                x={p.lx}
+                y={p.ly}
+                text-anchor={p.anchor}
+                class="fill-slate-700 font-serif text-[14px] font-semibold"
+              >
+                {p.name}
+              </text>
+            </>
+          ))
+        }
+
+        <text
+          x="170"
+          y="150"
+          text-anchor="middle"
+          class="fill-slate-400 text-[12px] uppercase tracking-[0.14em]"
+          >Growth Loop</text
+        >
+      </svg>
+    </div>
+  </div>
+</section>

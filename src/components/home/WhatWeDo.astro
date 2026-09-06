@@ -1,0 +1,37 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { whatWeDoSteps } from "../../data/home";
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="What We Do"
+      headline="We find out what's constraining your growth — then fix it."
+      subhead="Not with another isolated tactic. With a connected system built around your business."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      EverJourneys looks at how customers actually move through their
+      relationship with your business — how they discover you, decide, buy, and
+      stay — and identifies where that movement is breaking down. Once we know
+      that, we build or improve the specific pieces that matter: strategy,
+      experience, messaging, marketing, and the systems that connect and measure
+      it all. Then we watch what happens and keep making it better.
+    </p>
+    <ol class="mt-12 grid gap-8 md:grid-cols-3">
+      {
+        whatWeDoSteps.map((step, i) => (
+          <li>
+            <span class="text-sm font-semibold text-teal-700">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-2 font-serif text-xl font-semibold text-slate-900">
+              {step.title}
+            </h3>
+            <p class="mt-2 text-slate-600">{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

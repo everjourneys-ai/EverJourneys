@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/process/Hero.astro";
+import QuickReference from "../components/process/QuickReference.astro";
+import WhyDifferent from "../components/process/WhyDifferent.astro";
+import JourneyAtGlance from "../components/process/JourneyAtGlance.astro";
+import DiscoverDiagnose from "../components/process/DiscoverDiagnose.astro";
+import DesignDecide from "../components/process/DesignDecide.astro";
+import BuildLaunch from "../components/process/BuildLaunch.astro";
+import OptimizeGrow from "../components/process/OptimizeGrow.astro";
+import WalkAwayWith from "../components/process/WalkAwayWith.astro";
+import FinalCTA from "../components/process/FinalCTA.astro";
+
+// TODO: confirm final SEO copy
+const title = "How It Works — The EverJourneys Process";
+const description =
+  "From a growth problem to a growth system: Discover, Diagnose, Design, Decide, then Build, Launch, Optimize, and Grow — the eight stages of working with EverJourneys.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero />
+  <QuickReference />
+  <WhyDifferent />
+  <JourneyAtGlance />
+  <DiscoverDiagnose />
+  <DesignDecide />
+  <BuildLaunch />
+  <OptimizeGrow />
+  <WalkAwayWith />
+  <FinalCTA />
+</BaseLayout>

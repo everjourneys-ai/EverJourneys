@@ -1,0 +1,27 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import CompassDiagram from "../shared/CompassDiagram.astro";
+---
+
+<section class="border-t border-slate-100 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="How We Think"
+      headline="EverCompass: the method behind every decision we make."
+      subhead="Before we recommend anything, we find out where you are, where you're trying to go, and what's actually in the way."
+    />
+    <div class="mt-12 grid items-center gap-10 md:grid-cols-[1fr_auto]">
+      <p class="max-w-2xl text-lg text-slate-600">
+        EverCompass is how EverJourneys evaluates a business and decides what it
+        actually needs — instead of starting from a list of services. It's backed
+        by a connected system of knowledge, intelligence, and tools working
+        behind the scenes to help us understand, build, and improve faster. You
+        don't need to understand how that works. You'll feel the result: clearer
+        decisions, made faster, and grounded in your actual situation.
+      </p>
+      <div class="flex justify-center md:justify-end">
+        <CompassDiagram variant="full" />
+      </div>
+    </div>
+  </div>
+</section>

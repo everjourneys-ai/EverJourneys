@@ -1,0 +1,54 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+
+const supportingPoints = [
+  "What you can expect: regular visibility into progress, not a black box.",
+  "What you walk away with: a live, working system — not just a plan sitting in a document.",
+];
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="Stage 5–6"
+      headline="The approved plan becomes a working system."
+      subhead="This stage only applies if you choose Execution — everything gets built, coordinated, and put into the world."
+    />
+    <div class="mt-8 max-w-3xl space-y-5 text-lg text-slate-600">
+      <p>
+        <strong class="font-semibold text-slate-900"
+          >Build — "Make it happen."</strong
+        > Your approved plan gets built using EverJourneys' internal systems, tools,
+        and team — the coordination behind the scenes so the work actually gets done,
+        correctly and on schedule. You don't need to manage that coordination yourself.
+      </p>
+      <p>
+        <strong class="font-semibold text-slate-900"
+          >Launch — "Put it into the world."</strong
+        > The finished pieces go live — whatever your Growth System Blueprint called
+        for: a website, campaigns, CRM workflows, tracking, reporting, or some combination.
+        The specific deliverables depend entirely on what your diagnosis found, not
+        a fixed package.
+      </p>
+    </div>
+    <ul class="mt-8 max-w-2xl space-y-3">
+      {
+        supportingPoints.map((point) => {
+          const [lead, ...rest] = point.split(": ");
+          return (
+            <li class="flex gap-3 text-slate-700">
+              <span
+                aria-hidden="true"
+                class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-700"
+              />
+              <span>
+                <strong class="font-semibold text-slate-900">{lead}:</strong>{" "}
+                {rest.join(": ")}
+              </span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>

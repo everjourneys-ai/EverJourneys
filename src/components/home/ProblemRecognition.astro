@@ -1,0 +1,30 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { problemQuotes } from "../../data/home";
+---
+
+<section class="border-t border-slate-100 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="Sound familiar?"
+      headline="You're doing marketing. You still don't know what's working."
+      subhead="More activity isn't the answer when the pieces don't work together."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      You're running ads, posting content, sending emails — and you still can't
+      say for certain what's actually producing results. Leads come in, but
+      conversion is inconsistent. Your website gets traffic, but you're not sure
+      it's doing its job. Maybe you've worked with an agency before and never
+      quite knew what you were paying for.
+    </p>
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      {
+        problemQuotes.map((quote) => (
+          <blockquote class="rounded-lg border border-slate-200 bg-white p-6 text-slate-700">
+            <p class="text-lg italic leading-snug">“{quote}”</p>
+          </blockquote>
+        ))
+      }
+    </div>
+  </div>
+</section>

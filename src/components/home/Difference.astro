@@ -1,0 +1,32 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { differenceSupportingPoints } from "../../data/home";
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="The Difference"
+      headline="We don't run campaigns. We build growth systems."
+      subhead="We don't start with a service. We start with the problem."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      Most agencies ask which services you want to buy. EverJourneys starts by
+      understanding your business and how your customers actually move through it,
+      then recommends what needs to happen — whether that's strategy, a better
+      experience, clearer messaging, or a more connected system underneath it
+      all. You won't be sold a predetermined package. You'll be shown what your
+      growth actually needs, and why.
+    </p>
+    <ul class="mt-8 max-w-2xl space-y-3">
+      {
+        differenceSupportingPoints.map((point) => (
+          <li class="flex gap-3 text-slate-700">
+            <span aria-hidden="true" class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-700" />
+            <span>{point}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

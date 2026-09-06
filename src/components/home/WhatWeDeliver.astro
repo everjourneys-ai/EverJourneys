@@ -1,0 +1,28 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { deliverList } from "../../data/home";
+---
+
+<section class="border-t border-slate-100 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="What We Build"
+      headline="A growth system — not a stack of separate services."
+      subhead="Strategy, experience, messaging, marketing, and measurement, working as one connected system instead of disconnected pieces."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      Depending on what your business actually needs, that can include your
+      marketing strategy, your website or customer experience, your brand and
+      messaging, your campaigns, and the systems and data that measure how it's
+      all performing. None of those pieces work in isolation. A great website
+      doesn't help if the marketing that drives people to it doesn't match what
+      they find there. A campaign doesn't help if there's no way to measure what
+      it produced. EverJourneys builds and connects the specific pieces your
+      growth system needs — around your situation, not a fixed list.
+    </p>
+    <!-- Kept visually secondary on purpose: this is not a service menu. -->
+    <p class="mt-8 text-sm text-slate-400">
+      {deliverList.join(" · ")}
+    </p>
+  </div>
+</section>

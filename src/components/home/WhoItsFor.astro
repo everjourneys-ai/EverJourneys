@@ -1,0 +1,37 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { whoItsForPoints } from "../../data/home";
+---
+
+<section class="border-t border-slate-100 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="Is This a Fit?"
+      headline="Built for businesses that have outgrown fragmented marketing."
+      subhead="You don't need more marketing activity. You need what you already have working together."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      EverJourneys works best with established, owner-led businesses that already
+      have a proven offer and existing customers — but whose marketing,
+      experience, and systems have become fragmented, inconsistent, or hard to
+      predict.
+    </p>
+    <ul class="mt-8 max-w-2xl space-y-3">
+      {
+        whoItsForPoints.map((point) => (
+          <li class="flex gap-3 text-slate-700">
+            <span aria-hidden="true" class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-700" />
+            <span>{point}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      The strongest fit is a business that's curious, open to testing and
+      iteration, and interested in understanding why something is happening — not
+      just what to do next. If you're looking for a partner to figure this out
+      with, rather than a vendor to hand a list of tasks to, that's how
+      EverJourneys works.
+    </p>
+  </div>
+</section>

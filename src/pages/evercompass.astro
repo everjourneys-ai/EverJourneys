@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/evercompass/Hero.astro";
+import WhyNeeded from "../components/evercompass/WhyNeeded.astro";
+import HowItCreatesClarity from "../components/evercompass/HowItCreatesClarity.astro";
+import CustomerJourney from "../components/evercompass/CustomerJourney.astro";
+import FourCapabilities from "../components/evercompass/FourCapabilities.astro";
+import CapabilitiesConnect from "../components/evercompass/CapabilitiesConnect.astro";
+import InAction from "../components/evercompass/InAction.astro";
+import GrowthLoopDiagram from "../components/evercompass/GrowthLoopDiagram.astro";
+import ClientGains from "../components/evercompass/ClientGains.astro";
+import FinalCTA from "../components/evercompass/FinalCTA.astro";
+
+// TODO: confirm final SEO copy
+const title = "EverCompass — The Framework Behind Every EverJourneys Decision";
+const description =
+  "EverCompass is how EverJourneys diagnoses a business before recommending anything — examining the customer journey, drawing on four capabilities, and improving through the Growth Loop.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero />
+  <WhyNeeded />
+  <HowItCreatesClarity />
+  <CustomerJourney />
+  <FourCapabilities />
+  <CapabilitiesConnect />
+  <InAction />
+  <GrowthLoopDiagram />
+  <ClientGains />
+  <FinalCTA />
+</BaseLayout>

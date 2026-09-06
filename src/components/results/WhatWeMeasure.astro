@@ -1,0 +1,33 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { metricCategories } from "../../data/results";
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="What Counts as a Result"
+      headline="We measure what changed."
+      subhead="The right metric depends on the problem we were trying to solve."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      Results might mean more qualified leads, a higher conversion rate, lower
+      acquisition costs, stronger engagement, better customer retention, or a
+      system that finally gives the business reliable visibility into what's
+      happening. The point isn't to make every number look impressive. It's to
+      determine whether the change addressed the problem it was meant to solve.
+    </p>
+    <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        metricCategories.map((category) => (
+          <li class="rounded-xl border border-slate-200 bg-stone-50 p-6">
+            <h3 class="font-serif text-lg font-semibold text-slate-900">
+              {category.name}
+            </h3>
+            <p class="mt-2 text-sm text-slate-600">{category.items}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+
+const supportingPoints = [
+  "What you can expect: a real conversation about your business, not a sales pitch.",
+  "What you walk away with: clarity on what's actually constraining your growth — findings you can use, whether or not you continue.",
+];
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="Stage 1–2"
+      headline="We start by understanding — not by pitching."
+      subhead="Before anything gets recommended, we find out what's actually happening in your business."
+    />
+    <div class="mt-8 max-w-3xl space-y-5 text-lg text-slate-600">
+      <p>
+        <strong class="font-semibold text-slate-900"
+          >Discover — "Something isn't working."</strong
+        > Most clients come to us knowing something's off but not exactly what. This
+        stage isn't about having the answer already — it's a conversation to help
+        you recognize what's actually going on, and to see if EverJourneys is the
+        right fit to help.
+      </p>
+      <p>
+        <strong class="font-semibold text-slate-900"
+          >Diagnose — "Show me what's wrong."</strong
+        > We look at your current marketing, customer journey, website, messaging,
+        data, and systems to find the real bottlenecks — not just the most visible
+        symptom. This is diagnosis before prescription: nothing gets recommended yet.
+      </p>
+    </div>
+    <ul class="mt-8 max-w-2xl space-y-3">
+      {
+        supportingPoints.map((point) => {
+          const [lead, ...rest] = point.split(": ");
+          return (
+            <li class="flex gap-3 text-slate-700">
+              <span
+                aria-hidden="true"
+                class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-700"
+              />
+              <span>
+                <strong class="font-semibold text-slate-900">{lead}:</strong>{" "}
+                {rest.join(": ")}
+              </span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>

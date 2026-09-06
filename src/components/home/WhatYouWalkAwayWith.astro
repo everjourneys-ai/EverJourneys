@@ -1,0 +1,33 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { walkAwayWith } from "../../data/home";
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="What You Walk Away With"
+      headline="Clarity, whether or not we end up working together."
+      subhead="Every engagement is built to leave you with something useful — not just a conversation about marketing."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      If you choose Strategy, you get a roadmap you can act on, with or without
+      EverJourneys. If you choose Execution, you get a working system, not just a
+      plan. If you choose Optimization, you get measurable improvement to what's
+      already built. And in every conversation — even before any of that — the
+      goal is for you to leave with more clarity than you had before.
+    </p>
+    <dl class="mt-12 grid gap-8 md:grid-cols-3">
+      {
+        walkAwayWith.map((item) => (
+          <div>
+            <dt class="font-serif text-lg font-semibold text-slate-900">
+              {item.name}
+            </dt>
+            <dd class="mt-2 text-slate-600">{item.body}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

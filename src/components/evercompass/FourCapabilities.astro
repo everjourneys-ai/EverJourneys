@@ -1,0 +1,36 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { fourCapabilities } from "../../data/evercompass";
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="What EverCompass Draws On"
+      headline="Four capabilities. One decision."
+      subhead="Together, they cover most of where a growth constraint tends to show up — positioning, experience, communication, and measurement."
+    />
+    <p class="mt-8 max-w-3xl text-lg text-slate-600">
+      Depending on what the diagnosis finds, the fix might be strategic,
+      experiential, message-driven, or systems-based — often more than one. These
+      aren't services to choose from. They're the four capabilities EverCompass
+      has to work with, and it decides which ones a given situation actually
+      needs. EverCompass determines the priorities. Marketing Strategy is one of
+      the four capabilities it calls on — specifically when the priority itself
+      is strategic, like positioning or focus — not a competing source of
+      prioritization.
+    </p>
+    <ul class="mt-12 grid gap-6 sm:grid-cols-2">
+      {
+        fourCapabilities.map((cap) => (
+          <li class="rounded-xl border border-slate-200 bg-stone-50 p-6">
+            <h3 class="font-serif text-xl font-semibold text-slate-900">
+              {cap.name}
+            </h3>
+            <p class="mt-2 text-slate-600">{cap.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

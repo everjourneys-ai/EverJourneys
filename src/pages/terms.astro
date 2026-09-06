@@ -1,0 +1,450 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Verbatim transcription of the Notion "Terms of Use" (Legal & Compliance).
+// Substitutions applied per confirmed values from the site owner:
+//   [LEGAL BUSINESS NAME]      -> EverJourneys LLC
+//   [BUSINESS EMAIL]           -> explore@everjourneys.com
+//   [BUSINESS MAILING ADDRESS] -> 811 W 7th St. Suite 9, Los Angeles, CA 90017
+//   "marketing lab"            -> "growth systems consultancy" (positioning update, owner-approved)
+//   effective / last-updated dates -> the constant below (was inconsistent brackets in source)
+// One correction to the source text (owner-approved): section 4's "Ever Compass"
+// (with a space) is normalized to "EverCompass" — it's the name of EverJourneys'
+// own framework, spelled that way everywhere else on the site and in Notion's
+// EverCompass page; a misspelled mark in an IP-ownership clause is a defect, not
+// content worth preserving. Flagged back for the Notion source to be fixed too.
+// TODO: confirm final SEO copy. TODO: set the date below to the actual launch date.
+const effectiveDate = "September 6, 2026";
+const lastUpdated = "September 6, 2026";
+
+const title = "Terms of Use — EverJourneys";
+const description =
+  "The terms that govern your access to and use of the EverJourneys website, everjourneys.com.";
+
+const prose =
+  "mt-10 leading-relaxed text-slate-600 " +
+  "[&_h2]:mt-12 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-slate-900 " +
+  "[&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-6 " +
+  "[&_hr]:mt-12 [&_hr]:border-slate-200 " +
+  "[&_a]:font-medium [&_a]:text-teal-700 [&_a]:underline " +
+  "[&_strong]:font-semibold [&_strong]:text-slate-800";
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <h1
+      class="font-serif text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl"
+    >
+      Terms of Use
+    </h1>
+    <p class="mt-4 text-sm text-slate-500">
+      <span class="font-medium text-slate-700">Effective Date:</span> {effectiveDate}<br
+      />
+      <span class="font-medium text-slate-700">Last Updated:</span> {lastUpdated}
+    </p>
+
+    <div class={prose}>
+      <p>Welcome to EverJourneys.</p>
+      <p>
+        These Terms of Use ("Terms") govern your access to and use of the
+        EverJourneys website, including <strong>everjourneys.com</strong>, and any
+        content, materials, resources, tools, or features made available through
+        the website.
+      </p>
+      <p>
+        By accessing or using the website, you agree to these Terms. If you do
+        not agree with these Terms, please do not use the website.
+      </p>
+
+      <h2>1. About EverJourneys</h2>
+      <p>
+        EverJourneys is a growth systems consultancy that helps businesses build
+        clearer, more connected marketing systems.
+      </p>
+      <p>
+        Our work may include marketing strategy, customer journey analysis, user
+        experience, brand messaging, website optimization, conversion
+        optimization, paid advertising, analytics, CRM, automation, artificial
+        intelligence, reporting, and related marketing services.
+      </p>
+      <p>
+        The information presented on this website is provided for general
+        informational purposes and does not necessarily represent a customized
+        recommendation for your particular business.
+      </p>
+
+      <h2>2. Website Use</h2>
+      <p>
+        You may use this website for lawful business and informational purposes.
+      </p>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the website for unlawful purposes</li>
+        <li>Attempt to gain unauthorized access to the website or its systems</li>
+        <li>Interfere with website security or functionality</li>
+        <li>Introduce malicious code, viruses, or harmful material</li>
+        <li>
+          Scrape, copy, or reproduce substantial portions of the website without
+          permission
+        </li>
+        <li>Misrepresent your identity or affiliation</li>
+        <li>Use our website or materials to compete unfairly with EverJourneys</li>
+        <li>Attempt to reverse engineer website functionality</li>
+        <li>
+          Use the website in a manner that could damage EverJourneys or its users
+        </li>
+      </ul>
+      <p>
+        We reserve the right to restrict or terminate access to the website when
+        reasonably necessary.
+      </p>
+
+      <h2>3. Intellectual Property</h2>
+      <p>
+        Unless otherwise indicated, the EverJourneys website and its content are
+        owned by or licensed to EverJourneys.
+      </p>
+      <p>This may include:</p>
+      <ul>
+        <li>Logos</li>
+        <li>Brand elements</li>
+        <li>Text</li>
+        <li>Copy</li>
+        <li>Graphics</li>
+        <li>Images</li>
+        <li>Designs</li>
+        <li>Frameworks</li>
+        <li>Methodologies</li>
+        <li>Processes</li>
+        <li>Templates</li>
+        <li>Tools</li>
+        <li>Presentations</li>
+        <li>Videos</li>
+        <li>Educational materials</li>
+        <li>Website layouts</li>
+        <li>Other original materials</li>
+      </ul>
+      <p>
+        These materials are protected by applicable intellectual property laws.
+      </p>
+      <p>
+        You may view and use website content for your own personal or internal
+        business purposes.
+      </p>
+      <p>
+        You may not reproduce, distribute, modify, publish, sell, license, create
+        derivative works from, or commercially exploit EverJourneys intellectual
+        property without our prior written permission.
+      </p>
+
+      <h2>4. EverJourneys Methodologies and Frameworks</h2>
+      <p>
+        EverJourneys may develop proprietary methodologies, frameworks,
+        processes, concepts, systems, templates, and intellectual property in
+        connection with its business.
+      </p>
+      <p>
+        This may include proprietary concepts associated with the EverJourneys
+        brand, including the <strong>EverCompass</strong> and other frameworks
+        developed by EverJourneys.
+      </p>
+      <p>
+        Unless a written agreement expressly states otherwise, EverJourneys
+        retains ownership of its pre-existing methodologies, frameworks,
+        processes, templates, systems, and intellectual property.
+      </p>
+      <p>
+        A client receiving services from EverJourneys does not automatically
+        receive ownership of EverJourneys' underlying intellectual property.
+      </p>
+      <p>
+        Client-specific deliverables and ownership rights are governed by the
+        applicable service agreement, proposal, statement of work, or other
+        written agreement.
+      </p>
+
+      <h2>5. Website Information Is Not a Guarantee</h2>
+      <p>We strive to provide accurate and useful information.</p>
+      <p>
+        However, marketing performance depends on numerous factors outside
+        EverJourneys' control.
+      </p>
+      <p>These may include:</p>
+      <ul>
+        <li>Market conditions</li>
+        <li>Competition</li>
+        <li>Advertising platforms</li>
+        <li>Search engine algorithms</li>
+        <li>Consumer behavior</li>
+        <li>Website performance</li>
+        <li>Client operations</li>
+        <li>Pricing</li>
+        <li>Product or service quality</li>
+        <li>Sales processes</li>
+        <li>Budget</li>
+        <li>Data quality</li>
+        <li>Economic conditions</li>
+        <li>Third-party technology</li>
+        <li>Changes to advertising or technology platforms</li>
+      </ul>
+      <p>
+        Accordingly, EverJourneys does not guarantee that use of information on
+        this website will produce a particular level of traffic, leads, sales,
+        revenue, return on advertising spend, or other business result.
+      </p>
+      <p>Past results or examples do not guarantee future performance.</p>
+
+      <h2>6. No Professional Advice</h2>
+      <p>
+        Information provided through the website is for general informational and
+        educational purposes.
+      </p>
+      <p>
+        Nothing on this website should be interpreted as legal, accounting,
+        financial, tax, medical, or other professional advice.
+      </p>
+      <p>
+        You should consult an appropriately qualified professional for advice
+        specific to your circumstances.
+      </p>
+
+      <h2>7. Consultations and Discovery Forms</h2>
+      <p>
+        Submitting a consultation request, discovery form, assessment,
+        questionnaire, or other inquiry does not create a client relationship
+        between you and EverJourneys.
+      </p>
+      <p>
+        A client relationship is created only after the parties enter into an
+        applicable written agreement.
+      </p>
+      <p>
+        Information submitted through our forms may be reviewed to understand your
+        business, goals, challenges, marketing environment, and potential fit for
+        EverJourneys services.
+      </p>
+      <p>
+        We reserve the right to decline an engagement or determine that our
+        services are not appropriate for a particular business or project.
+      </p>
+
+      <h2>8. Artificial Intelligence and Automated Tools</h2>
+      <p>
+        EverJourneys may use artificial intelligence and automated technologies
+        in research, analysis, content development, reporting, workflow
+        automation, marketing strategy, and other business processes.
+      </p>
+      <p>
+        AI-generated or AI-assisted outputs may contain errors, omissions,
+        inaccuracies, or recommendations that require human review.
+      </p>
+      <p>
+        AI-generated information should not be treated as independently verified
+        fact unless EverJourneys expressly states otherwise.
+      </p>
+      <p>
+        We may use human review, professional judgment, and other validation
+        processes as appropriate, but we do not guarantee that AI-assisted
+        outputs are error-free.
+      </p>
+
+      <h2>9. Third-Party Platforms</h2>
+      <p>
+        EverJourneys may work with or reference third-party platforms, including
+        advertising, analytics, CRM, website, automation, AI, hosting, and other
+        technology providers.
+      </p>
+      <p>
+        Examples may include Google, HubSpot, WordPress, Elementor, Figma, Make,
+        analytics platforms, advertising platforms, and other third-party
+        services.
+      </p>
+      <p>
+        Third-party services are governed by their own terms, policies, and
+        availability.
+      </p>
+      <p>
+        EverJourneys does not control third-party platforms and is not
+        responsible for changes, outages, restrictions, suspensions, algorithm
+        changes, pricing changes, data practices, or other actions taken by those
+        providers.
+      </p>
+
+      <h2>10. Links to Third-Party Websites</h2>
+      <p>Our website may contain links to third-party websites.</p>
+      <p>These links are provided for convenience or informational purposes.</p>
+      <p>
+        EverJourneys does not necessarily endorse or control third-party websites
+        and is not responsible for their content, security, availability, or
+        privacy practices.
+      </p>
+      <p>
+        Your use of third-party websites is subject to their respective terms and
+        policies.
+      </p>
+
+      <h2>11. Testimonials, Case Studies, and Results</h2>
+      <p>
+        Any testimonials, case studies, examples, performance metrics, or client
+        results presented on the website are provided for illustrative purposes.
+      </p>
+      <p>Individual results vary.</p>
+      <p>
+        Factors affecting results may include the client's industry, market,
+        budget, offer, pricing, sales process, website, competition,
+        implementation, timing, and other circumstances.
+      </p>
+      <p>
+        No testimonial or case study should be interpreted as a guarantee of
+        similar results.
+      </p>
+
+      <h2>12. Availability of the Website</h2>
+      <p>
+        We attempt to keep the website available and functional, but we do not
+        guarantee that the website will always be:
+      </p>
+      <ul>
+        <li>Available</li>
+        <li>Uninterrupted</li>
+        <li>Error-free</li>
+        <li>Secure</li>
+        <li>Free from viruses or harmful components</li>
+      </ul>
+      <p>
+        We may modify, suspend, discontinue, or restrict portions of the website
+        at any time.
+      </p>
+
+      <h2>13. User Submissions</h2>
+      <p>
+        If you voluntarily submit information, feedback, ideas, comments,
+        questions, or other materials to EverJourneys, you represent that you
+        have the right to provide that information.
+      </p>
+      <p>You remain responsible for information you submit.</p>
+      <p>
+        You should not submit confidential, proprietary, regulated, or highly
+        sensitive information through general website forms unless specifically
+        requested and appropriate.
+      </p>
+      <p>
+        Information submitted through the website may be handled according to our
+        <a href="/privacy">Privacy Policy</a>.
+      </p>
+
+      <h2>14. Confidentiality</h2>
+      <p>
+        Submitting information through the public website, contact forms, or
+        general email does not necessarily create a confidential or fiduciary
+        relationship.
+      </p>
+      <p>
+        Confidentiality obligations relating to client information are governed by
+        applicable written agreements.
+      </p>
+      <p>
+        If you need to share confidential business information before entering
+        into an engagement, contact EverJourneys to determine the appropriate
+        process.
+      </p>
+
+      <h2>15. Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by applicable law, EverJourneys and its
+        owners, employees, contractors, affiliates, and service providers will
+        not be liable for indirect, incidental, special, consequential,
+        exemplary, or punitive damages arising from or related to your use of the
+        website or reliance on information provided through the website.
+      </p>
+      <p>This includes, without limitation, losses relating to:</p>
+      <ul>
+        <li>Lost profits</li>
+        <li>Lost revenue</li>
+        <li>Lost opportunities</li>
+        <li>Lost data</li>
+        <li>Business interruption</li>
+        <li>Marketing performance</li>
+        <li>Advertising performance</li>
+        <li>Website performance</li>
+        <li>Third-party platform changes</li>
+        <li>Technology failures</li>
+      </ul>
+      <p>
+        Nothing in these Terms is intended to exclude liability that cannot
+        legally be excluded or limited under applicable law.
+      </p>
+
+      <h2>16. Indemnification</h2>
+      <p>
+        To the maximum extent permitted by applicable law, you agree to defend,
+        indemnify, and hold harmless EverJourneys and its owners, employees,
+        contractors, affiliates, and service providers from claims, liabilities,
+        damages, losses, and expenses arising from:
+      </p>
+      <ul>
+        <li>Your unlawful use of the website</li>
+        <li>Your violation of these Terms</li>
+        <li>Your violation of another person's rights</li>
+        <li>Information or materials you submit</li>
+        <li>Your misuse of EverJourneys intellectual property</li>
+      </ul>
+
+      <h2>17. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time.</p>
+      <p>
+        When we update them, we will revise the "Last Updated" date above.
+      </p>
+      <p>
+        Your continued use of the website after updated Terms become effective
+        constitutes acceptance of the updated Terms to the extent permitted by
+        applicable law.
+      </p>
+
+      <h2>18. Governing Law</h2>
+      <p>
+        These Terms will be governed by the laws of the State of California,
+        without regard to conflict-of-law principles, except where applicable law
+        requires otherwise.
+      </p>
+      <p>
+        Any dispute relating to these Terms or your use of the website will be
+        subject to the applicable courts and jurisdiction determined under
+        California law, unless otherwise required by an applicable written
+        agreement or law.
+      </p>
+
+      <h2>19. Severability</h2>
+      <p>
+        If any provision of these Terms is determined to be invalid or
+        unenforceable, the remaining provisions will remain in effect to the
+        fullest extent permitted by law.
+      </p>
+
+      <h2>20. Entire Agreement</h2>
+      <p>These Terms govern your general use of the EverJourneys website.</p>
+      <p>
+        Additional written agreements, proposals, statements of work, service
+        agreements, or other contracts may govern specific services or client
+        relationships.
+      </p>
+      <p>
+        If there is a conflict between these Terms and a specific written client
+        agreement, the applicable client agreement will control with respect to
+        the services covered by that agreement.
+      </p>
+
+      <h2>21. Contact</h2>
+      <p>Questions regarding these Terms may be directed to:</p>
+      <p>
+        <strong>EverJourneys</strong><br />
+        <strong>EverJourneys LLC</strong><br />
+        <strong>Email:</strong> explore@everjourneys.com<br />
+        <strong>Address:</strong> 811 W 7th St. Suite 9, Los Angeles, CA 90017
+      </p>
+
+      <hr />
+      <p><strong>Last Updated:</strong> {lastUpdated}</p>
+    </div>
+  </article>
+</BaseLayout>

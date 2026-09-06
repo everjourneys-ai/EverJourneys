@@ -1,0 +1,26 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { walkAwayWith } from "../../data/process";
+---
+
+<section class="border-t border-slate-100 bg-white">
+  <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
+    <SectionHeading
+      eyebrow="What You Walk Away With"
+      headline="Something real, at every stage — whether or not you go further."
+      subhead="Even the earliest stages of this process are built to leave you with something useful."
+    />
+    <dl class="mt-12 max-w-3xl divide-y divide-slate-200 border-y border-slate-200">
+      {
+        walkAwayWith.map((item) => (
+          <div class="flex flex-col gap-1 py-4 sm:flex-row sm:gap-6">
+            <dt class="font-serif text-lg font-semibold text-slate-900 sm:w-56 sm:shrink-0">
+              {item.stage}
+            </dt>
+            <dd class="text-slate-600">{item.body}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

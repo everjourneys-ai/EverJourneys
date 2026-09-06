@@ -1,0 +1,38 @@
+---
+import { company } from "../../data/site";
+---
+
+<footer class="border-t border-slate-200 bg-stone-50">
+  <div class="mx-auto max-w-5xl px-6 py-12 text-sm text-slate-600">
+    <div class="flex flex-col gap-2">
+      <p class="text-base font-semibold text-slate-900">{company.name}</p>
+      <p>{company.address}</p>
+      <p>
+        <a
+          href={`mailto:${company.email}`}
+          class="text-teal-700 transition-colors hover:text-teal-800"
+        >
+          {company.email}
+        </a>
+      </p>
+      <p>{company.hours}</p>
+    </div>
+    <nav aria-label="Legal" class="mt-8 flex flex-wrap gap-x-5 gap-y-2">
+      <a
+        href="/privacy"
+        class="text-teal-700 transition-colors hover:text-teal-800"
+      >
+        Privacy Policy
+      </a>
+      <a
+        href="/terms"
+        class="text-teal-700 transition-colors hover:text-teal-800"
+      >
+        Terms of Use
+      </a>
+    </nav>
+    <p class="mt-6 text-xs text-slate-400">
+      &copy; {company.copyrightYear} {company.name}. All rights reserved.
+    </p>
+  </div>
+</footer>
