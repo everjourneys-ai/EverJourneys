@@ -1,0 +1,38 @@
+---
+// §3.3 — maps a Design & Decide card to its path in the Journey-at-a-Glance diagram above it.
+interface Props {
+  kind: 'ends' | 'continues' | 'jumps';
+  label: string;
+}
+
+const { kind, label } = Astro.props;
+---
+<span class:list={['destination-tag', `destination-tag--${kind}`]}>{label}</span>
+
+<style>
+  .destination-tag {
+    display: inline-block;
+    font-size: var(--text-small);
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    line-height: 1;
+  }
+
+  .destination-tag--ends {
+    background: var(--color-orange);
+    color: var(--color-cream);
+  }
+
+  .destination-tag--continues {
+    background: transparent;
+    color: var(--color-ink);
+    border: 1.5px solid var(--color-ink);
+  }
+
+  .destination-tag--jumps {
+    background: transparent;
+    color: var(--color-slate);
+    border: 1.5px dashed var(--color-slate);
+  }
+</style>

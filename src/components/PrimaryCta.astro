@@ -1,0 +1,46 @@
+---
+// Primary CTA, §2.2 — one fixed treatment, no per-page variants beyond the /start size bump.
+interface Props {
+  href: string;
+  arrow?: boolean;
+  size?: 'default' | 'large';
+  class?: string;
+}
+
+const { href, arrow = false, size = 'default', class: className } = Astro.props;
+---
+<a href={href} class:list={['primary-cta', `primary-cta--${size}`, className]}>
+  <slot />
+  {arrow && <span aria-hidden="true" class="primary-cta__arrow">→</span>}
+</a>
+
+<style>
+  .primary-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-orange);
+    color: var(--color-cream);
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: var(--text-body);
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: var(--radius-sharp);
+    transition: background var(--motion-cta) ease-out, transform var(--motion-cta) ease-out;
+  }
+
+  .primary-cta:hover {
+    background: var(--color-orange-hover);
+    transform: translateY(-2px);
+  }
+
+  .primary-cta--large {
+    padding: 20px 40px;
+    font-size: var(--text-body-lg);
+  }
+
+  .primary-cta__arrow {
+    line-height: 1;
+  }
+</style>

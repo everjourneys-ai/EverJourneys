@@ -1,0 +1,339 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PrimaryCta from '../components/PrimaryCta.astro';
+import TextLink from '../components/TextLink.astro';
+import Card3 from '../components/Card3.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import Compass from '../components/diagrams/Compass.astro';
+import TopoPattern from '../components/TopoPattern.astro';
+import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import { icons } from '../components/icons';
+
+const threeWays = [
+  {
+    number: '01',
+    title: 'Full Engagement',
+    quote: 'We run the whole compass.',
+    body: 'Strategy, UX, brand, and systems handled end-to-end by one connected team.',
+  },
+  {
+    number: '02',
+    title: 'Focused Sprint',
+    quote: 'One area, sharpened fast.',
+    body: 'A short, scoped engagement on the one part of the compass that is holding you back.',
+  },
+  {
+    number: '03',
+    title: 'Ongoing Partner',
+    quote: 'Momentum, kept up.',
+    body: 'Embedded, continuous support that keeps analyzing, building, and optimizing after launch.',
+  },
+];
+
+const deliverables = [
+  'Strategy roadmap',
+  'UX & product design',
+  'Brand identity system',
+  'Systems integration',
+  'Growth measurement',
+];
+
+const faqItems = [
+  {
+    question: 'How is EverJourneys different from a typical agency?',
+    answer:
+      'We diagnose across all four parts of the compass — strategy, experience, brand, and systems — before recommending where to act, instead of selling the one service we happen to offer.',
+  },
+  {
+    question: 'How long does a typical engagement take?',
+    answer:
+      'It depends on the path: a focused sprint can wrap in a few weeks, while a full engagement through the Growth Loop typically runs in quarterly cycles.',
+  },
+  {
+    question: 'Do we need to know exactly what we need before reaching out?',
+    answer:
+      "No — Discover and Diagnose exist precisely for that. Most conversations start with a symptom, not a diagnosis.",
+  },
+  {
+    question: 'What happens after the first project ships?',
+    answer:
+      'Work moves into the Growth Loop — Analyze, Build, Launch, Optimize, Repeat — so the system keeps improving instead of going stale.',
+  },
+];
+---
+<Layout
+  title="Home"
+  description="EverJourneys brings strategy, experience, brand, and systems into one connected compass. Clarity creates momentum."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <TopoPattern />
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <h1>Clarity Creates Momentum</h1>
+        <p class="subhead">
+          EverJourneys connects strategy, experience, brand, and systems into one compass — so every
+          decision points the same direction.
+        </p>
+        <div class="hero__actions">
+          <PrimaryCta href="/start" arrow>Start with a conversation</PrimaryCta>
+          <TextLink href="#process-steps">See how it works →</TextLink>
+        </div>
+      </div>
+      <PhotoPlaceholder class="hero__photo" ratio="4 / 5" />
+    </div>
+  </section>
+
+  <!-- Problem / Recognition -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading
+        eyebrow="THE PROBLEM"
+        headline="Growth stalls when nothing is connected"
+        subhead="A sharp brand with a confusing product. A clear strategy nobody's systems can execute. Most businesses aren't missing effort — they're missing a shared compass."
+      />
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="section section--tan">
+    <div class="container what-we-do">
+      <SectionHeading eyebrow="WHAT WE DO" headline="One connected system, not four disconnected vendors" />
+      <div class="what-we-do__body">
+        <span class="what-we-do__icon" set:html={icons.stackedLayers} aria-hidden="true" />
+        <p class="measure">
+          We treat strategy, user experience, brand identity, and systems integration as one practice.
+          Each decision in one area is made with the other three already in the room.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Think -->
+  <section class="section section--cream">
+    <div class="container how-we-think">
+      <div class="how-we-think__copy">
+        <SectionHeading
+          eyebrow="HOW WE THINK"
+          headline="The EverCompass framework"
+          subhead="Four areas, evaluated together, so a fix in one never becomes a problem in another."
+        />
+        <TextLink href="/ever-compass">Explore your compass →</TextLink>
+      </div>
+      <Compass class="how-we-think__diagram" />
+    </div>
+  </section>
+
+  <!-- The Difference -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading
+        eyebrow="THE DIFFERENCE"
+        headline="Diagnosis before prescription"
+        subhead="Most partners start with their specialty. We start with your compass reading, then bring in whichever areas actually need work."
+      />
+    </div>
+  </section>
+
+  <!-- What We Deliver (deliberately de-emphasized, §3.1) -->
+  <section class="section-tight section--cream">
+    <div class="container">
+      <SectionHeading eyebrow="WHAT WE DELIVER" headline="Whatever the compass points to" />
+      <p class="measure deliver__intro">Depending on where the diagnosis lands, engagements can include:</p>
+      <p class="deliver__list">
+        {deliverables.map((item, i) => (
+          <>
+            <span>{item}</span>
+            {i < deliverables.length - 1 && <span aria-hidden="true"> · </span>}
+          </>
+        ))}
+      </p>
+    </div>
+  </section>
+
+  <!-- Three Ways to Work — the visual-weight break, §3.1 -->
+  <section class="section three-ways section--tan">
+    <div class="container">
+      <SectionHeading eyebrow="HOW TO ENGAGE" headline="Three ways to work with us" />
+      <div class="three-ways__cards">
+        <Card3 items={threeWays} feature />
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps teaser -->
+  <section id="process-steps" class="section section--cream">
+    <div class="container">
+      <SectionHeading
+        eyebrow="THE PROCESS"
+        headline="Discover, Diagnose, Decide — then act"
+        subhead="Every engagement moves through the same journey before it forks toward strategy, execution, or optimization."
+      />
+      <TextLink href="/process">See the full process →</TextLink>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading
+        eyebrow="WHO IT'S FOR"
+        headline="Teams who feel the disconnect"
+        subhead="Growing businesses whose strategy, product, brand, or systems have started pulling in different directions."
+      />
+    </div>
+  </section>
+
+  <!-- What You Walk Away With -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading
+        eyebrow="WHAT YOU WALK AWAY WITH"
+        headline="A system that keeps working after we leave"
+        subhead="Not just deliverables — a shared compass your team can keep reading long after the engagement ends."
+      />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--tan">
+    <div class="container faq-section">
+      <SectionHeading eyebrow="QUESTIONS" headline="Frequently asked" />
+      <FaqAccordion items={faqItems} />
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--cream final-cta">
+    <div class="container final-cta__inner">
+      <h2>Ready to find your bearings?</h2>
+      <PrimaryCta href="/start" arrow size="large">Start with a conversation</PrimaryCta>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: calc(100svh - 65px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    padding-block: var(--space-6);
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .hero__photo {
+    max-width: 360px;
+    justify-self: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero__grid {
+      grid-template-columns: 3fr 2fr;
+    }
+
+    .hero__photo {
+      justify-self: end;
+    }
+  }
+
+  .what-we-do__body {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+  }
+
+  .what-we-do__icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    color: var(--color-ink);
+  }
+
+  .how-we-think {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .how-we-think__copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .how-we-think__diagram {
+    max-width: 340px;
+    justify-self: center;
+  }
+
+  @media (min-width: 900px) {
+    .how-we-think {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .how-we-think__diagram {
+      justify-self: end;
+    }
+  }
+
+  .deliver__intro {
+    margin-top: var(--space-2);
+    color: rgb(17 17 17 / 60%);
+    font-size: var(--text-small);
+  }
+
+  .deliver__list {
+    margin-top: var(--space-1);
+    font-size: var(--text-small);
+    color: rgb(17 17 17 / 60%);
+  }
+
+  .three-ways {
+    padding-block: calc(var(--space-section-mobile) + var(--space-3));
+  }
+
+  @media (min-width: 640px) {
+    .three-ways {
+      padding-block: calc(var(--space-section) + var(--space-3));
+    }
+  }
+
+  .three-ways__cards {
+    margin-top: var(--space-4);
+  }
+
+  .faq-section :global(.faq) {
+    margin-top: var(--space-4);
+    max-width: var(--measure-narrow);
+  }
+
+  .final-cta__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+</style>

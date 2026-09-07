@@ -1,0 +1,63 @@
+---
+// Shared Compass diagram, §2.3 — Home "How We Think" (paired, smaller) + EverCompass Hero (full-width feature).
+// viewBox is wider than the ring so East/West labels have room to run without clipping.
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const cx = 340;
+const cy = 240;
+const ringR = 130;
+
+const cardinals = [
+  { verb: 'Navigate', area: 'Strategy', ring: { x: cx, y: cy - ringR }, label: { x: cx, y: 55, anchor: 'middle', dy: [0, 22] } },
+  { verb: 'Guide', area: 'User Experience', ring: { x: cx + ringR, y: cy }, label: { x: cx + ringR + 20, y: cy - 6, anchor: 'start', dy: [0, 22] } },
+  { verb: 'Differentiate', area: 'Brand Identity', ring: { x: cx, y: cy + ringR }, label: { x: cx, y: cy + ringR + 45, anchor: 'middle', dy: [0, 22] } },
+  { verb: 'Connect', area: 'Systems Integration', ring: { x: cx - ringR, y: cy }, label: { x: cx - ringR - 20, y: cy - 6, anchor: 'end', dy: [0, 22] } },
+];
+---
+<svg
+  class:list={['compass-diagram', className]}
+  viewBox="0 0 680 480"
+  role="img"
+  aria-label="EverCompass framework: four connected areas — Strategy (North), User Experience (East), Brand Identity (South), Systems Integration (West) — evaluated together to diagnose what a business needs."
+>
+  <circle cx={cx} cy={cy} r={ringR} fill="none" stroke="var(--color-ink)" stroke-width="1.5" opacity="0.5" />
+
+  {cardinals.map((c) => (
+    <line x1={cx} y1={cy} x2={c.ring.x} y2={c.ring.y} stroke="var(--color-ink)" stroke-width="1" opacity="0.35" />
+  ))}
+
+  <path
+    d={`M ${cx} ${cy - 110} L ${cx + 28} ${cy} L ${cx} ${cy + 110} L ${cx - 28} ${cy} Z`}
+    fill="none"
+    stroke="var(--color-ink)"
+    stroke-width="1.5"
+  />
+  <path d={`M ${cx} ${cy - 110} L ${cx + 28} ${cy} L ${cx} ${cy} Z`} fill="var(--color-orange)" stroke="none" />
+  <circle cx={cx} cy={cy} r="6" fill="var(--color-ink)" />
+  <circle cx={cx} cy={cy - 110} r="4" fill="var(--color-orange)" />
+
+  {cardinals.map((c) => (
+    <text x={c.label.x} y={c.label.y} text-anchor={c.label.anchor} font-family="Inter, sans-serif">
+      <tspan
+        x={c.label.x}
+        dy={c.label.dy[0]}
+        font-size="12"
+        font-weight="600"
+        letter-spacing="0.08em"
+        fill="var(--color-orange)"
+      >{c.verb.toUpperCase()}</tspan>
+      <tspan x={c.label.x} dy={c.label.dy[1]} font-size="17" font-weight="600" fill="var(--color-ink)">{c.area}</tspan>
+    </text>
+  ))}
+</svg>
+
+<style>
+  .compass-diagram {
+    width: 100%;
+    height: auto;
+  }
+</style>

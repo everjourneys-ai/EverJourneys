@@ -1,0 +1,24 @@
+---
+// Section heading pattern, §2.1 — used 30+ times. Left-aligned, never centered.
+interface Props {
+  eyebrow: string;
+  headline: string;
+  subhead?: string;
+  level?: 'h2' | 'h3';
+}
+
+const { eyebrow, headline, subhead, level = 'h2' } = Astro.props;
+const Heading = level;
+---
+<div class="section-heading">
+  <span class="eyebrow">{eyebrow}</span>
+  <hr class="waypoint-rule" />
+  <Heading>{headline}</Heading>
+  {subhead && <p class="subhead">{subhead}</p>}
+</div>
+
+<style>
+  .section-heading {
+    text-align: left;
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+// Growth Loop, §3.2/§1.6 — five-arc ring (Analyze → Build → Launch → Optimize → Repeat → Analyze),
+// alternating orange/slate, closing arc back to Analyze so the "repeats" idea is a real continuous path.
+const stages = ['Analyze', 'Build', 'Launch', 'Optimize', 'Repeat'];
+const colors = ['var(--color-orange)', 'var(--color-slate)', 'var(--color-orange)', 'var(--color-slate)', 'var(--color-orange)'];
+
+const cx = 220;
+const cy = 220;
+const r = 150;
+const labelR = 190;
+
+const toXY = (angleDeg: number, radius: number) => {
+  const rad = (angleDeg * Math.PI) / 180;
+  return { x: cx + radius * Math.cos(rad), y: cy + radius * Math.sin(rad) };
+};
+
+// Node angles at 72° intervals, starting at top (-90°).
+const angles = stages.map((_, i) => -90 + i * 72);
+const nodePoints = angles.map((a) => toXY(a, r));
+const labelPoints = angles.map((a) => toXY(a, labelR));
+
+// One arc per segment, node[i] -> node[i+1], wrapping the last segment back to node[0].
+const arcs = stages.map((_, i) => {
+  const start = nodePoints[i];
+  const end = nodePoints[(i + 1) % stages.length];
+  return `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${r} ${r} 0 0 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
+});
+
+const circumference = 2 * Math.PI * r;
+---
+<svg
+  class="growth-loop"
+  viewBox="0 0 440 440"
+  role="img"
+  aria-label="Growth Loop: a five-stage cycle — Analyze, Build, Launch, Optimize, Repeat — that continuously repeats, illustrated as a closed circular path."
+>
+  <circle
+    class="growth-loop__ambient"
+    cx={cx}
+    cy={cy}
+    r={r}
+    fill="none"
+    stroke="var(--color-ink)"
+    stroke-width="1"
+    stroke-dasharray="2 10"
+    opacity="0.3"
+    style={`--circumference: ${circumference.toFixed(2)}px`}
+  />
+
+  {arcs.map((d, i) => (
+    <path d={d} fill="none" stroke={colors[i]} stroke-width="10" stroke-linecap="round" />
+  ))}
+
+  <g>
+    <circle cx={cx} cy={cy} r="22" fill="none" stroke="var(--color-ink)" stroke-width="1.5" opacity="0.6" />
+    <path
+      d={`M ${cx} ${cy - 12} L ${cx + 6} ${cy} L ${cx} ${cy + 12} L ${cx - 6} ${cy} Z`}
+      fill="var(--color-ink)"
+      opacity="0.6"
+    />
+  </g>
+
+  {nodePoints.map((p, i) => (
+    <circle cx={p.x} cy={p.y} r="7" fill="var(--color-cream)" stroke={colors[i]} stroke-width="3" />
+  ))}
+
+  {labelPoints.map((p, i) => (
+    <text
+      x={p.x}
+      y={p.y}
+      text-anchor="middle"
+      dominant-baseline="middle"
+      font-family="Inter, sans-serif"
+      font-size="16"
+      font-weight="600"
+      fill="var(--color-ink)"
+    >{stages[i]}</text>
+  ))}
+</svg>
+
+<style>
+  .growth-loop {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .growth-loop__ambient {
+      animation: growth-loop-spin var(--motion-loop) linear infinite;
+    }
+  }
+
+  @keyframes growth-loop-spin {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: var(--circumference); }
+  }
+</style>

@@ -1,0 +1,15 @@
+---
+// Brand motif: EverJourneys' home coordinates. Corner-placed, one instance per page (in the footer).
+const COORDS = '34.0522° N, 118.2437° W';
+---
+<span class="coordinate-tag" aria-hidden="true">{COORDS}</span>
+
+<style>
+  .coordinate-tag {
+    font-family: 'Inter', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: var(--text-small);
+    letter-spacing: 0.03em;
+    color: rgb(17 17 17 / 45%);
+  }
+</style>

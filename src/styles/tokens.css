@@ -1,0 +1,63 @@
+/*
+  Design tokens — EverJourneys Brand Guide v2 / Design Sign-Off v1.
+  Fluid type interpolates between a 400px and 1200px viewport reference.
+*/
+:root {
+  /* Color */
+  --color-orange: #E76F34;
+  --color-orange-hover: #C85A26; /* orange mixed ~15% toward ink, per §2.2 */
+  --color-slate: #3D5A6A;
+  --color-ink: #111111;
+  --color-tan: #D9D2C7;
+  --color-cream: #F3EFE9;
+
+  /* Type family */
+  --font-display: 'Anton', 'Arial Narrow', sans-serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Fluid type scale (desktop max -> mobile min), see §1.2 */
+  --text-h1: clamp(36px, calc(36px + (100vw - 400px) * 0.03), 60px);
+  --text-h2: clamp(28px, calc(28px + (100vw - 400px) * 0.015), 40px);
+  --text-h3: clamp(20px, calc(20px + (100vw - 400px) * 0.0075), 26px);
+  --text-eyebrow: 13px;
+  --text-body-lg: clamp(17px, calc(17px + (100vw - 400px) * 0.0025), 19px);
+  --text-body: 16px;
+  --text-small: 14px;
+
+  --leading-h1: 1.0;
+  --leading-h2: 1.05;
+  --leading-h3: 1.15;
+  --leading-body: 1.6;
+  --leading-small: 1.5;
+
+  /* Spacing (8px base unit) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-section: 128px;
+  --space-section-mobile: 72px;
+  --space-section-tight: 80px;
+  --space-section-tight-mobile: 48px;
+
+  /* Grid / layout */
+  --container-max: 1200px;
+  --measure-narrow: 720px;
+  --grid-gutter: 24px;
+
+  /* Radius */
+  --radius-sharp: 4px;
+
+  /* Motion */
+  --motion-reveal: 200ms;
+  --motion-cta: 120ms;
+  --motion-loop: 16s;
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  :root {
+    --grid-columns: 8;
+  }
+}

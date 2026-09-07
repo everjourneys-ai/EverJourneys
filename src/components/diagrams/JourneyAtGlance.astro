@@ -1,0 +1,164 @@
+---
+// Journey at a Glance, §3.3 — the site's hardest diagram. Desktop is a genuine fork; mobile is a
+// redesigned vertical trunk-and-branch (not a scaled-down fork), per the responsive requirement in §5.
+const ariaLabel =
+  "Diagram of the project journey: Discover, Diagnose, and Decide lead to three paths — a short solid path ending at Strategy, a full-length solid path through Build, Launch, and Optimize/Grow for Execution, and a dashed shortcut from Decide directly to Optimize/Grow for Optimization that skips the Build and Launch stops.";
+---
+<div class="journey" role="img" aria-label={ariaLabel}>
+  <svg class="journey__desktop" viewBox="0 0 900 420" aria-hidden="true">
+    <!-- Trunk: Discover -> Diagnose -> Decide -->
+    <line x1="60" y1="240" x2="380" y2="240" stroke="var(--color-ink)" stroke-width="2.5" />
+    <circle cx="60" cy="240" r="7" fill="var(--color-ink)" />
+    <circle cx="220" cy="240" r="7" fill="var(--color-ink)" />
+
+    <!-- Decide node: crosshair-with-target -->
+    <g transform="translate(380 240)">
+      <circle r="16" fill="var(--color-cream)" stroke="var(--color-ink)" stroke-width="2" />
+      <path d="M0 -10v6M0 4v6M-10 0h6M4 0h6" stroke="var(--color-ink)" stroke-width="2" stroke-linecap="round" />
+      <circle r="2.5" fill="var(--color-ink)" />
+    </g>
+
+    <!-- Strategy: short path to flag/pin, orange -->
+    <path d="M394 228 L520 108" fill="none" stroke="var(--color-orange)" stroke-width="2.5" />
+    <g transform="translate(520 100)">
+      <path d="M0 24V0h13l-4 6 4 6H0" fill="none" stroke="var(--color-orange)" stroke-width="2" stroke-linejoin="round" />
+    </g>
+
+    <!-- Execution: full-length solid ink line through Build -> Launch -> Optimize/Grow -->
+    <line x1="396" y1="240" x2="800" y2="240" stroke="var(--color-ink)" stroke-width="2.5" />
+    <circle cx="520" cy="240" r="7" fill="var(--color-ink)" />
+    <circle cx="660" cy="240" r="7" fill="var(--color-ink)" />
+    <circle cx="800" cy="240" r="8" fill="var(--color-ink)" />
+
+    <!-- Optimization: dashed slate shortcut bypassing Build/Launch, same endpoint -->
+    <path
+      d="M388 252 C 470 330, 650 330, 796 250"
+      fill="none"
+      stroke="var(--color-slate)"
+      stroke-width="2.5"
+      stroke-dasharray="8 7"
+    />
+
+    <!-- Labels -->
+    <text x="60" y="270" text-anchor="middle" font-family="Inter" font-size="14" font-weight="600" fill="var(--color-ink)">Discover</text>
+    <text x="220" y="270" text-anchor="middle" font-family="Inter" font-size="14" font-weight="600" fill="var(--color-ink)">Diagnose</text>
+    <text x="380" y="280" text-anchor="middle" font-family="Inter" font-size="14" font-weight="600" fill="var(--color-ink)">Decide</text>
+    <text x="530" y="95" text-anchor="start" font-family="Inter" font-size="14" font-weight="600" fill="var(--color-orange)">Strategy</text>
+    <text x="520" y="270" text-anchor="middle" font-family="Inter" font-size="14" font-weight="600" fill="var(--color-ink)">Build</text>
+    <text x="660" y="270" text-anchor="middle" font-family="Inter" font-size="14" font-weight="600" fill="var(--color-ink)">Launch</text>
+    <text x="800" y="270" text-anchor="middle" font-family="Inter" font-size="14" font-weight="600" fill="var(--color-ink)">Optimize / Grow</text>
+    <text x="620" y="345" text-anchor="middle" font-family="Inter" font-size="13" font-weight="600" fill="var(--color-slate)">Optimization (skips Build, Launch)</text>
+  </svg>
+
+  <ol class="journey__mobile" aria-hidden="true">
+    <li class="journey__trunk-node">Discover</li>
+    <li class="journey__trunk-node">Diagnose</li>
+    <li class="journey__trunk-node journey__trunk-node--decide">Decide</li>
+    <li class="journey__branch journey__branch--strategy">
+      <span class="journey__branch-label">Strategy</span>
+      <span class="journey__branch-note">Ends here</span>
+    </li>
+    <li class="journey__branch journey__branch--optimization">
+      <span class="journey__branch-label">Optimization</span>
+      <span class="journey__branch-note">Jumps to Optimize/Grow, skipping Build and Launch</span>
+    </li>
+    <li class="journey__branch journey__branch--execution">
+      <span class="journey__branch-label">Execution</span>
+      <span class="journey__branch-note">Build → Launch → Optimize/Grow</span>
+    </li>
+  </ol>
+</div>
+
+<style>
+  .journey__desktop {
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .journey__mobile {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .journey__trunk-node {
+    position: relative;
+    padding: var(--space-2) 0 var(--space-2) var(--space-4);
+    font-weight: 600;
+    border-left: 2.5px solid var(--color-ink);
+  }
+
+  .journey__trunk-node::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-ink);
+  }
+
+  .journey__trunk-node--decide {
+    border-left: none;
+  }
+
+  .journey__branch {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-2) 0 var(--space-2) var(--space-6);
+    border-left: 2.5px solid transparent;
+    margin-left: var(--space-3);
+  }
+
+  .journey__branch-label {
+    font-weight: 600;
+  }
+
+  .journey__branch-note {
+    font-size: var(--text-small);
+    color: rgb(17 17 17 / 65%);
+  }
+
+  .journey__branch--strategy {
+    margin-left: var(--space-4);
+    border-left-color: var(--color-orange);
+    border-left-style: solid;
+  }
+
+  .journey__branch--strategy .journey__branch-label {
+    color: var(--color-orange);
+  }
+
+  .journey__branch--optimization {
+    margin-left: var(--space-2);
+    border-left-color: var(--color-slate);
+    border-left-style: dashed;
+    padding-block-end: var(--space-4);
+  }
+
+  .journey__branch--optimization .journey__branch-label {
+    color: var(--color-slate);
+  }
+
+  .journey__branch--execution {
+    margin-left: 0;
+    border-left-color: var(--color-ink);
+    border-left-style: solid;
+    padding-block-end: var(--space-6);
+  }
+
+  @media (min-width: 1024px) {
+    .journey__desktop {
+      display: block;
+    }
+
+    .journey__mobile {
+      display: none;
+    }
+  }
+</style>

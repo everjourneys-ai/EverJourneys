@@ -1,0 +1,246 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PrimaryCta from '../components/PrimaryCta.astro';
+import Card3 from '../components/Card3.astro';
+import JourneyAtGlance from '../components/diagrams/JourneyAtGlance.astro';
+import { icons } from '../components/icons';
+
+const glossary = [
+  { term: 'Discover', def: 'Gathering the full picture before proposing anything.' },
+  { term: 'Diagnose', def: 'Scoring strategy, UX, brand, and systems against the EverCompass.' },
+  { term: 'Decide', def: 'The fork: Strategy, Execution, or Optimization.' },
+  { term: 'Strategy', def: 'A roadmap engagement that ends in a plan, not a build.' },
+  { term: 'Execution', def: 'The full build path — Build, Launch, Optimize/Grow.' },
+  { term: 'Optimization', def: 'A shortcut straight to Optimize/Grow for systems already built.' },
+];
+
+const designDecideCards = [
+  {
+    number: '01',
+    title: 'Strategy',
+    body: 'A clear roadmap and recommendation. The engagement ends here — you take it from here, or come back when you are ready to build.',
+    destination: { kind: 'ends' as const, label: 'Ends here' },
+  },
+  {
+    number: '02',
+    title: 'Execution',
+    body: 'The full path: Build, Launch, then Optimize/Grow. Every node gets our attention, in order.',
+    destination: { kind: 'continues' as const, label: 'Continues to Build →' },
+  },
+  {
+    number: '03',
+    title: 'Optimization',
+    body: 'For systems that are already built and launched — we skip straight to sharpening what exists.',
+    destination: { kind: 'jumps' as const, label: 'Jumps to Optimize →' },
+  },
+];
+
+const walkAwayWith = [
+  'A written diagnosis across all four compass areas',
+  'A roadmap, a build, or a sharpened system — matched to the path you took',
+  'A Growth Loop cadence for keeping it that way',
+];
+---
+<Layout
+  title="Process"
+  description="How an EverJourneys engagement moves from Discover and Diagnose to a Strategy, Execution, or Optimization path."
+>
+  <!-- Hero -->
+  <section class="section section--cream process-hero">
+    <div class="container">
+      <span class="eyebrow">THE PROCESS</span>
+      <hr class="waypoint-rule" />
+      <h1>From first conversation to a plan you can run on</h1>
+      <p class="subhead">Every engagement moves through the same journey before it forks toward the path that fits.</p>
+    </div>
+  </section>
+
+  <!-- Quick Reference -->
+  <section class="section-tight section--tan">
+    <div class="container">
+      <SectionHeading eyebrow="QUICK REFERENCE" headline="The terms, in one place" />
+      <dl class="glossary">
+        {glossary.map((item) => (
+          <div class="glossary__row">
+            <dt>{item.term}</dt>
+            <dd>{item.def}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- Why Different -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading
+        eyebrow="WHY DIFFERENT"
+        headline="One journey, three legitimate endings"
+        subhead="Not every engagement needs to end in a build. Naming Strategy, Execution, and Optimization as equally valid outcomes — instead of funneling everyone toward the biggest scope — is what keeps the diagnosis honest."
+      />
+    </div>
+  </section>
+
+  <!-- Journey at a Glance -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading
+        eyebrow="THE JOURNEY AT A GLANCE"
+        headline="Discover, Diagnose, Decide — then one of three paths"
+      />
+      <div class="journey-wrap">
+        <JourneyAtGlance />
+      </div>
+    </div>
+  </section>
+
+  <!-- Discover & Diagnose -->
+  <section class="section section--cream">
+    <div class="container phase">
+      <span class="phase__icon" set:html={icons.search} aria-hidden="true" />
+      <SectionHeading
+        eyebrow="PHASE ONE"
+        headline="Discover & Diagnose"
+        subhead="We gather how the business actually runs today, then score strategy, UX, brand, and systems against the EverCompass to find where the real bottleneck sits."
+      />
+    </div>
+  </section>
+
+  <!-- Design & Decide -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading
+        eyebrow="PHASE TWO"
+        headline="Design & Decide"
+        subhead="The diagnosis points to one of three paths. Each is a complete, legitimate way to engage — not a stepping stone to a bigger sale."
+      />
+      <div class="grid-spacing">
+        <Card3 items={designDecideCards} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Build & Launch -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading
+        eyebrow="PHASE THREE"
+        headline="Build & Launch"
+        subhead="For engagements on the Execution path — turning the plan into the actual product, brand system, or infrastructure, then shipping it."
+      />
+    </div>
+  </section>
+
+  <!-- Optimize & Grow -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading
+        eyebrow="PHASE FOUR"
+        headline="Optimize & Grow"
+        subhead="Where the Execution and Optimization paths meet — measuring what shipped and feeding it into the Growth Loop."
+      />
+    </div>
+  </section>
+
+  <!-- Walk Away With -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading eyebrow="WHAT YOU WALK AWAY WITH" headline="Something to run on, whichever path you took" />
+      <ul class="walk-away">
+        {walkAwayWith.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--tan final-cta">
+    <div class="container final-cta__inner">
+      <h2>Ready to find out which path fits?</h2>
+      <PrimaryCta href="/start" arrow size="large">Start with a conversation</PrimaryCta>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .process-hero {
+    max-width: var(--measure-narrow);
+  }
+
+  .glossary {
+    margin: var(--space-4) 0 0;
+    max-width: 480px;
+    background: var(--color-tan);
+    border: 1px solid rgb(17 17 17 / 15%);
+    border-radius: var(--radius-sharp);
+    overflow: hidden;
+  }
+
+  .glossary__row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid rgb(17 17 17 / 15%);
+  }
+
+  .glossary__row:last-child {
+    border-bottom: none;
+  }
+
+  .glossary__row dt {
+    font-weight: 600;
+    font-size: var(--text-small);
+  }
+
+  .glossary__row dd {
+    margin: 0;
+    font-size: var(--text-small);
+    color: rgb(17 17 17 / 75%);
+  }
+
+  .journey-wrap {
+    margin-top: var(--space-4);
+  }
+
+  .phase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .phase__icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    color: var(--color-orange);
+  }
+
+  .grid-spacing {
+    margin-top: var(--space-4);
+  }
+
+  .walk-away {
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: var(--measure-narrow);
+  }
+
+  .walk-away li {
+    padding-left: var(--space-3);
+    border-left: 2px solid var(--color-orange);
+    font-size: var(--text-body-lg);
+  }
+
+  .final-cta__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+</style>

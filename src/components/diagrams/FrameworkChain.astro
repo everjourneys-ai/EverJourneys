@@ -1,0 +1,81 @@
+---
+// FrameworkChain, §3.4 — linear five-node chain, no branching, no repeat implication.
+interface ChainNode {
+  label: string;
+  question: string;
+}
+
+interface Props {
+  nodes: ChainNode[];
+}
+
+const { nodes } = Astro.props;
+const ariaLabel = `Diagram of a linear framework: ${nodes.map((n) => n.label).join(' → ')}.`;
+---
+<div class="chain" role="img" aria-label={ariaLabel}>
+  {nodes.map((node, i) => (
+    <>
+      <div class="chain__node" aria-hidden="true">
+        <span class="chain__label">{node.label}</span>
+        <span class="chain__question">{node.question}</span>
+      </div>
+      {i < nodes.length - 1 && (
+        <svg class="chain__arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="var(--color-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      )}
+    </>
+  ))}
+</div>
+
+<style>
+  .chain {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .chain__node {
+    background: var(--color-cream);
+    border: 1.5px solid var(--color-ink);
+    border-radius: var(--radius-sharp);
+    padding: var(--space-2) var(--space-3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .chain__label {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+  }
+
+  .chain__question {
+    font-size: var(--text-small);
+    color: rgb(17 17 17 / 65%);
+  }
+
+  .chain__arrow {
+    width: 22px;
+    height: 22px;
+    align-self: center;
+    transform: rotate(90deg);
+  }
+
+  @media (min-width: 900px) {
+    .chain {
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .chain__node {
+      flex: 1;
+    }
+
+    .chain__arrow {
+      align-self: center;
+      transform: none;
+    }
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+// Hero hierarchy diagram, §3.2 — Customer Journey → Four Capabilities → Growth Loop.
+// Row of boxes + arrows at desktop; vertical trunk with downward arrows at mobile (CSS flex-direction switch).
+const stages = ['Customer Journey', 'Four Capabilities', 'Growth Loop'];
+---
+<div
+  class="hierarchy"
+  role="img"
+  aria-label="Diagram showing how Customer Journey mapping feeds Four Capabilities, which feed the Growth Loop."
+>
+  {stages.map((stage, i) => (
+    <>
+      <div class="hierarchy__box" aria-hidden="true">{stage}</div>
+      {i < stages.length - 1 && (
+        <svg class="hierarchy__arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="var(--color-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      )}
+    </>
+  ))}
+</div>
+
+<style>
+  .hierarchy {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+
+  .hierarchy__box {
+    background: var(--color-cream);
+    border: 1.5px solid var(--color-ink);
+    border-radius: var(--radius-sharp);
+    padding: var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    text-align: center;
+  }
+
+  .hierarchy__arrow {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    transform: rotate(90deg);
+  }
+
+  @media (min-width: 768px) {
+    .hierarchy {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .hierarchy__box {
+      flex: 1;
+    }
+
+    .hierarchy__arrow {
+      flex-shrink: 0;
+      transform: none;
+    }
+  }
+</style>

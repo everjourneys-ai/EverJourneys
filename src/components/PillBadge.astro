@@ -1,0 +1,16 @@
+---
+// "A Typical Scenario" badge, §3.2 — slate fill so it never reads as actionable like the orange CTA.
+---
+<span class="pill-badge"><slot /></span>
+
+<style>
+  .pill-badge {
+    display: inline-block;
+    background: var(--color-slate);
+    color: var(--color-cream);
+    font-size: var(--text-small);
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 999px;
+  }
+</style>

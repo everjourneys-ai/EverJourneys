@@ -1,0 +1,50 @@
+---
+// 6-item grid, §2.5 — What We Measure: most compact, label + one-line description.
+interface CardItem {
+  label: string;
+  body: string;
+}
+
+interface Props {
+  items: CardItem[];
+}
+
+const { items } = Astro.props;
+---
+<div class="card6-grid">
+  {items.map((item) => (
+    <div class="card card6">
+      <h3 class="card6__label">{item.label}</h3>
+      <p class="card6__body">{item.body}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .card6-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+
+  @media (min-width: 768px) {
+    .card6-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .card6 {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .card6__label {
+    margin: 0 0 4px;
+    font-size: var(--text-h3);
+  }
+
+  .card6__body {
+    font-size: var(--text-small);
+    color: rgb(17 17 17 / 75%);
+    margin: 0;
+  }
+</style>

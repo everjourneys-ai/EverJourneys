@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PrimaryCta from '../components/PrimaryCta.astro';
+import CardGrid6 from '../components/CardGrid6.astro';
+import FrameworkChain from '../components/diagrams/FrameworkChain.astro';
+
+const chainNodes = [
+  { label: 'Problem', question: 'What isn’t working?' },
+  { label: 'Diagnosis', question: 'Which compass area is the real cause?' },
+  { label: 'Action', question: 'What did we actually change?' },
+  { label: 'Result', question: 'What moved, and by how much?' },
+  { label: 'Next Move', question: 'What does the loop do with this?' },
+];
+
+const whatWeMeasure = [
+  { label: 'Conversion Rate', body: 'Visitors or leads who complete the action that matters.' },
+  { label: 'Time to Launch', body: 'How fast a plan becomes a shipped thing.' },
+  { label: 'Brand Recall', body: 'Whether the brand sticks after the interaction ends.' },
+  { label: 'System Uptime', body: 'Whether the systems behind the experience actually hold.' },
+  { label: 'Customer Retention', body: 'Who comes back, and how often.' },
+  { label: 'Revenue per Journey', body: 'What a completed journey is actually worth.' },
+];
+---
+<Layout
+  title="Results"
+  description="How EverJourneys measures results — from problem to diagnosis to action to outcome, and back into the Growth Loop."
+>
+  <!-- Hero -->
+  <section class="section section--cream results-hero">
+    <div class="container">
+      <span class="eyebrow">RESULTS</span>
+      <hr class="waypoint-rule" />
+      <h1>Numbers only matter if you know why they moved</h1>
+      <p class="subhead">Every result traces back through the same chain: problem, diagnosis, action, result, next move.</p>
+    </div>
+  </section>
+
+  <!-- Results Intro -->
+  <section class="section-tight section--tan">
+    <div class="container">
+      <SectionHeading eyebrow="HOW WE FRAME IT" headline="The same chain, every time" />
+      <div class="chain-wrap">
+        <FrameworkChain nodes={chainNodes} />
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Measure -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading eyebrow="WHAT WE MEASURE" headline="Six numbers we watch on every engagement" />
+      <div class="grid-spacing">
+        <CardGrid6 items={whatWeMeasure} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem to Result -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading eyebrow="PROBLEM TO RESULT" headline="Applied to a real engagement" />
+      <div class="chain-wrap">
+        <FrameworkChain
+          nodes={[
+            { label: 'Problem', question: 'Conversion dropped after a rebrand.' },
+            { label: 'Diagnosis', question: 'New brand promise, old product flow.' },
+            { label: 'Action', question: 'Rebuilt the flow to match the promise.' },
+            { label: 'Result', question: 'Conversion recovered past its prior baseline.' },
+            { label: 'Next Move', question: 'Fold the flow into the next Growth Loop cycle.' },
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- No Two Journeys Same -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading
+        eyebrow="NO TWO JOURNEYS THE SAME"
+        headline="The chain is fixed. What moves through it never is"
+        subhead="Two businesses can have the same symptom and completely different diagnoses. The chain stays constant so the comparison is fair — the specifics never are."
+      />
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--tan final-cta">
+    <div class="container final-cta__inner">
+      <h2>Curious what your chain would look like?</h2>
+      <PrimaryCta href="/start" arrow size="large">Start with a conversation</PrimaryCta>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .results-hero {
+    max-width: var(--measure-narrow);
+  }
+
+  .chain-wrap {
+    margin-top: var(--space-4);
+  }
+
+  .grid-spacing {
+    margin-top: var(--space-4);
+  }
+
+  .final-cta__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+</style>

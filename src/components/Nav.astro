@@ -1,0 +1,212 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/ever-compass', label: 'EverCompass' },
+  { href: '/process', label: 'Process' },
+  { href: '/results', label: 'Results' },
+];
+const currentPath = Astro.url.pathname;
+---
+<header class="nav">
+  <div class="container nav__row">
+    <a href="/" class="nav__logo">EverJourneys</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav__toggle-input" />
+    <label for="nav-toggle" class="nav__toggle">
+      <span class="visually-hidden">Menu</span>
+      <span class="nav__toggle-icon" aria-hidden="true"></span>
+    </label>
+
+    <nav aria-label="Primary" class="nav__panel">
+      <ul class="nav__links">
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={currentPath === link.href ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="/start" class="nav__cta">Start with a conversation</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: relative;
+    z-index: 50;
+    background: var(--color-cream);
+    border-bottom: 1px solid var(--color-tan);
+  }
+
+  .nav__row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-block: var(--space-2);
+  }
+
+  .nav__logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+
+  .nav__toggle-input {
+    position: absolute;
+    opacity: 0;
+    width: 44px;
+    height: 44px;
+    top: 8px;
+    right: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .nav__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav__toggle-icon,
+  .nav__toggle-icon::before,
+  .nav__toggle-icon::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-ink);
+    transition: transform var(--motion-cta) ease-out, opacity var(--motion-cta) ease-out;
+  }
+
+  .nav__toggle-icon::before,
+  .nav__toggle-icon::after {
+    content: '';
+    position: relative;
+  }
+
+  .nav__toggle-icon::before { top: -6px; }
+  .nav__toggle-icon::after { top: 4px; }
+
+  .nav__toggle-input:checked ~ .nav__toggle .nav__toggle-icon {
+    background: transparent;
+  }
+
+  .nav__toggle-input:checked ~ .nav__toggle .nav__toggle-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .nav__toggle-input:checked ~ .nav__toggle .nav__toggle-icon::after {
+    top: -2px;
+    transform: rotate(-45deg);
+  }
+
+  .nav__toggle-input:focus-visible ~ .nav__toggle {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+  }
+
+  .nav__panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-cream);
+    border-bottom: 1px solid var(--color-tan);
+    padding: var(--space-3) var(--grid-gutter) var(--space-4);
+  }
+
+  .nav__toggle-input:checked ~ .nav__panel {
+    display: block;
+  }
+
+  .nav__links {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .nav__links a {
+    text-decoration: none;
+    font-size: var(--text-body-lg);
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+
+  .nav__links a[aria-current='page'] {
+    color: var(--color-orange);
+  }
+
+  .nav__links a:hover {
+    color: var(--color-slate);
+  }
+
+  .nav__cta {
+    display: inline-block;
+    background: var(--color-orange);
+    color: var(--color-cream);
+    text-decoration: none;
+    font-size: var(--text-small);
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: var(--radius-sharp);
+    white-space: nowrap;
+    transition: background var(--motion-cta) ease-out, transform var(--motion-cta) ease-out;
+  }
+
+  .nav__cta:hover {
+    background: var(--color-orange-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 768px) {
+    .nav__toggle-input,
+    .nav__toggle {
+      display: none;
+    }
+
+    .nav__panel {
+      display: block;
+      position: static;
+      border-bottom: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .nav__row {
+      flex-wrap: nowrap;
+    }
+
+    .nav__panel {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .nav__links {
+      flex-direction: row;
+      margin: 0;
+      gap: var(--space-4);
+    }
+
+    .nav__links a {
+      font-size: var(--text-body);
+    }
+  }
+</style>

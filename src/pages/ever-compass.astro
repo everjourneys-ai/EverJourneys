@@ -1,0 +1,266 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PrimaryCta from '../components/PrimaryCta.astro';
+import CardGrid4 from '../components/CardGrid4.astro';
+import PillBadge from '../components/PillBadge.astro';
+import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
+import TopoPattern from '../components/TopoPattern.astro';
+import Compass from '../components/diagrams/Compass.astro';
+import HierarchyDiagram from '../components/diagrams/HierarchyDiagram.astro';
+import GrowthLoop from '../components/diagrams/GrowthLoop.astro';
+import { icons } from '../components/icons';
+
+const customerJourney = [
+  { icon: icons.search, title: 'Awareness', body: 'How they find you, and what first impression your compass makes.' },
+  { icon: icons.crosshair, title: 'Consideration', body: 'Where they weigh you against alternatives — and what tips the decision.' },
+  { icon: icons.flagPin, title: 'Decision', body: 'The moment they commit, and everything that has to be ready for it.' },
+  { icon: icons.person, title: 'Loyalty', body: 'What keeps them coming back once the first engagement is done.' },
+];
+
+const fourCapabilities = [
+  { icon: icons.growthArrow, title: 'Strategy', body: 'Where you are headed and why, stated plainly enough to act on.' },
+  { icon: icons.person, title: 'User Experience', body: 'How it feels to move through what you have built.' },
+  { icon: icons.mountain, title: 'Brand Identity', body: 'What makes you recognizable and worth remembering.' },
+  { icon: icons.overlappingSquares, title: 'Systems Integration', body: 'Whether the parts actually talk to each other.' },
+];
+
+const clientGains = [
+  'One shared framework instead of four competing vendor opinions',
+  'A diagnosis before a proposal, so budget goes where it is needed',
+  'A system built to keep improving after launch, not just at launch',
+];
+---
+<Layout
+  title="EverCompass"
+  description="EverCompass is the framework EverJourneys uses to diagnose and connect strategy, experience, brand, and systems."
+>
+  <!-- Hero -->
+  <section class="compass-hero">
+    <TopoPattern />
+    <div class="container compass-hero__inner">
+      <div class="compass-hero__copy">
+        <span class="eyebrow">THE FRAMEWORK</span>
+        <hr class="waypoint-rule" />
+        <h1>EverCompass</h1>
+        <p class="subhead">
+          Four connected areas, evaluated together, that tell you exactly what a business needs — and in
+          what order.
+        </p>
+      </div>
+      <PhotoPlaceholder class="compass-hero__photo" ratio="16 / 10" />
+      <div class="compass-hero__diagram">
+        <Compass />
+      </div>
+      <div class="compass-hero__hierarchy">
+        <HierarchyDiagram />
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Needed -->
+  <section class="section section--cream">
+    <div class="container why-needed">
+      <span class="why-needed__icon" set:html={icons.crosshair} aria-hidden="true" />
+      <SectionHeading
+        eyebrow="WHY NEEDED"
+        headline="Because problems rarely stay in their lane"
+        subhead="A brand problem is often a strategy problem in disguise. A systems problem often shows up first as a UX complaint. Diagnosing one area in isolation misses this every time."
+      />
+    </div>
+  </section>
+
+  <!-- How It Creates Clarity -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading
+        eyebrow="HOW IT WORKS"
+        headline="Clarity comes from seeing all four at once"
+        subhead="EverCompass scores each of the four areas independently, then reads them together — so the plan addresses the actual bottleneck, not just the loudest symptom."
+      />
+    </div>
+  </section>
+
+  <!-- Customer Journey -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading eyebrow="CUSTOMER JOURNEY" headline="Mapped in four stages" />
+      <div class="grid-spacing">
+        <CardGrid4 items={customerJourney} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Capabilities -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading eyebrow="FOUR CAPABILITIES" headline="What the compass actually measures" />
+      <div class="grid-spacing">
+        <CardGrid4 items={fourCapabilities} />
+      </div>
+    </div>
+  </section>
+
+  <!-- How They Connect -->
+  <section class="section section--cream">
+    <div class="container">
+      <SectionHeading
+        eyebrow="HOW THEY CONNECT"
+        headline="The Customer Journey runs through all four capabilities"
+        subhead="Every stage of the journey touches strategy, experience, brand, and systems in a different mix — which is what the Four Capabilities score is really measuring."
+      />
+    </div>
+  </section>
+
+  <!-- EverCompass in Action -->
+  <section class="section section--tan">
+    <div class="container">
+      <PillBadge>A Typical Scenario</PillBadge>
+      <div class="in-action">
+        <SectionHeading eyebrow="EVERCOMPASS IN ACTION" headline="A retention problem that wasn't about retention" />
+        <p class="measure">
+          A client came in convinced their loyalty program needed a redesign. EverCompass found the real
+          gap two stages earlier, in Consideration — the brand promise and the actual product experience
+          didn't match. Fixing the mismatch mattered more than the redesign ever would have.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Growth Loop -->
+  <section class="section section--cream">
+    <div class="container growth-loop-section">
+      <SectionHeading
+        eyebrow="THE GROWTH LOOP"
+        headline="Once the diagnosis is done, the loop repeats"
+        subhead="Analyze, Build, Launch, Optimize, Repeat — a cycle, not a one-time project."
+      />
+      <div class="growth-loop-section__diagram">
+        <span class="growth-loop-section__glyph" set:html={icons.loopArrow} aria-hidden="true" />
+        <GrowthLoop />
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Gains -->
+  <section class="section section--tan">
+    <div class="container">
+      <SectionHeading eyebrow="CLIENT GAINS" headline="What changes once you have a compass" />
+      <ul class="client-gains">
+        {clientGains.map((gain) => <li>{gain}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--cream final-cta">
+    <div class="container final-cta__inner">
+      <h2>Find out what your compass reads</h2>
+      <PrimaryCta href="/start" arrow size="large">Start with a conversation</PrimaryCta>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .compass-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-section-mobile);
+  }
+
+  @media (min-width: 640px) {
+    .compass-hero {
+      padding-block: var(--space-section);
+    }
+  }
+
+  .compass-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .compass-hero__copy {
+    max-width: var(--measure-narrow);
+  }
+
+  .compass-hero__photo {
+    max-height: 320px;
+  }
+
+  .compass-hero__diagram {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .compass-hero__hierarchy {
+    margin-top: var(--space-2);
+  }
+
+  .why-needed {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .why-needed__icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    color: var(--color-orange);
+  }
+
+  .grid-spacing {
+    margin-top: var(--space-4);
+  }
+
+  .in-action {
+    margin-top: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .growth-loop-section__diagram {
+    position: relative;
+    max-width: 440px;
+    margin: var(--space-4) auto 0;
+  }
+
+  .growth-loop-section__glyph {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 28px;
+    height: 28px;
+    color: var(--color-slate);
+    z-index: 2;
+  }
+
+  .client-gains {
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: var(--measure-narrow);
+  }
+
+  .client-gains li {
+    padding-left: var(--space-3);
+    border-left: 2px solid var(--color-orange);
+    font-size: var(--text-body-lg);
+  }
+
+  .final-cta__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+</style>
