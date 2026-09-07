@@ -86,7 +86,15 @@ const whatWeMeasure = [
   </section>
 
   <!-- Final CTA -->
-  <section class="section section--tan final-cta">
+  <section class="section final-cta final-cta--photo">
+    <img
+      class="final-cta__bg"
+      src="/images/hero-home.jpg"
+      alt=""
+      width="1586"
+      height="992"
+    />
+    <div class="final-cta__scrim" aria-hidden="true"></div>
     <div class="container final-cta__inner">
       <h2>Curious what your chain would look like?</h2>
       <PrimaryCta href="/start" arrow size="large">Start with a conversation</PrimaryCta>
@@ -108,9 +116,37 @@ const whatWeMeasure = [
   }
 
   .final-cta__inner {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-4);
+  }
+
+  .final-cta--photo {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 80%;
+    z-index: 0;
+  }
+
+  .final-cta__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgb(17 17 17 / 62%);
+  }
+
+  .final-cta--photo h2 {
+    color: var(--color-cream);
   }
 </style>

@@ -4,8 +4,6 @@ import SectionHeading from '../components/SectionHeading.astro';
 import PrimaryCta from '../components/PrimaryCta.astro';
 import CardGrid4 from '../components/CardGrid4.astro';
 import PillBadge from '../components/PillBadge.astro';
-import PhotoPlaceholder from '../components/PhotoPlaceholder.astro';
-import TopoPattern from '../components/TopoPattern.astro';
 import Compass from '../components/diagrams/Compass.astro';
 import HierarchyDiagram from '../components/diagrams/HierarchyDiagram.astro';
 import GrowthLoop from '../components/diagrams/GrowthLoop.astro';
@@ -37,7 +35,14 @@ const clientGains = [
 >
   <!-- Hero -->
   <section class="compass-hero">
-    <TopoPattern />
+    <img
+      class="compass-hero__bg"
+      src="/images/hero-home.jpg"
+      alt=""
+      width="1586"
+      height="992"
+    />
+    <div class="compass-hero__scrim" aria-hidden="true"></div>
     <div class="container compass-hero__inner">
       <div class="compass-hero__copy">
         <span class="eyebrow">THE FRAMEWORK</span>
@@ -48,7 +53,6 @@ const clientGains = [
           what order.
         </p>
       </div>
-      <PhotoPlaceholder class="compass-hero__photo" ratio="16 / 10" />
       <div class="compass-hero__diagram">
         <Compass />
       </div>
@@ -174,6 +178,23 @@ const clientGains = [
     }
   }
 
+  .compass-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    z-index: 0;
+  }
+
+  .compass-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgb(243 239 233 / 90%);
+  }
+
   .compass-hero__inner {
     position: relative;
     z-index: 1;
@@ -184,10 +205,6 @@ const clientGains = [
 
   .compass-hero__copy {
     max-width: var(--measure-narrow);
-  }
-
-  .compass-hero__photo {
-    max-height: 320px;
   }
 
   .compass-hero__diagram {
